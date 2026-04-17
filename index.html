@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Task Manager CRUD</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="container">
+    <header>
+      <h1>Task Manager CRUD</h1>
+      <p class="subtitle">Gestiona tus tareas de forma sencilla</p>
+    </header>
+
+    <!-- FORMULARIO -->
+    <section class="form-section">
+      <h2 id="formTitle">Nueva Tarea</h2>
+      <input type="hidden" id="editIndex" value="-1" />
+
+      <div class="form-group">
+        <label for="taskTitle">Título <span class="required">*</span></label>
+        <input type="text" id="taskTitle" placeholder="Título de la tarea" />
+        <span class="error-msg" id="titleError">El título es obligatorio.</span>
+      </div>
+
+      <div class="form-group">
+        <label for="taskDescription">Descripción</label>
+        <textarea id="taskDescription" placeholder="Descripción (opcional)" rows="3"></textarea>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="taskDueDate">Fecha límite</label>
+          <input type="date" id="taskDueDate" />
+        </div>
+        <div class="form-group">
+          <label for="taskPriority">Prioridad</label>
+          <select id="taskPriority">
+            <option value="Media">Media</option>
+            <option value="Alta">Alta</option>
+            <option value="Baja">Baja</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-actions">
+        <button id="saveBtn" onclick="saveTask()">Agregar Tarea</button>
+        <button id="cancelBtn" class="btn-secondary" onclick="cancelEdit()" style="display:none;">Cancelar</button>
+      </div>
+    </section>
+
+    <!-- FILTROS -->
+    <section class="filter-section">
+      <button class="filter-btn active" id="filter-all"       onclick="setFilter('all')">Todas</button>
+      <button class="filter-btn"        id="filter-pending"   onclick="setFilter('pending')">Pendientes</button>
+      <button class="filter-btn"        id="filter-completed" onclick="setFilter('completed')">Completadas</button>
+      <span class="task-count" id="taskCount"></span>
+    </section>
+
+    <!-- LISTA DE TAREAS -->
+    <section>
+      <ul id="taskList"></ul>
+      <p id="emptyMsg" class="empty-msg" style="display:none;">No hay tareas para mostrar.</p>
+    </section>
+  </div>
+
+  <script src="app.js"></script>
+  <script src="createTask.js"></script>
+  <script src="editTask.js"></script>
+  <script src="deleteTask.js"></script>
+</body>
+</html>
