@@ -21,7 +21,7 @@ from selenium.webdriver.support import expected_conditions as EC
 
 
 # ─── Configuración ────────────────────────────────────────────────────────────
-BASE_URL = "file:///ruta/a/tu/proyecto/index.html"  # Cambiar a la URL real o ruta local
+BASE_URL = "file:///C:/Users/Tony Peralta/Desktop/Proyecto final/index.html"  # Cambiar a la URL real o ruta local
 WAIT = 5  # segundos de espera máxima
 
 
